@@ -1,9 +1,37 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import contact from '../../assets/contact.svg'
+import React, { useState, useEffect } from 'react';
+import avatar from '../../assets/Avatar-Maker.svg';
+import axios from 'axios';
+import perfil from '../../assets/perfil.png'
+
 function Content() {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(()=>{
+    const fetchUserData= async()=>{
+      try{
+        const response = await axios.get('https://api.github.com/users/0Duarte/repos')
+        setUserData(response.data);
+      }catch(error){
+        console.log(error)
+      }
+    }
+    fetchUserData();
+  },[])
+  
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
+
+  if (!userData) {
+    return <div>Carregando...</div>;
+  }
+
   return (
+    
     <div className="container-fluid">
-      {/*APRESENTACAO */}
+      {/*APRESENTAÇÃO */}
       <div className="row" id="section-profile" style={{minHeight: "90vh"}}>
         <div className="col-md-6 col-xl d-flex flex-column flex-wrap align-items-center justify-content-center">
           <div className="d-flex flex-column align-items-start gap-3">
@@ -13,27 +41,56 @@ function Content() {
                 Olá, meu nome é,
               </h1>
               <h1>Guilherme Duarte</h1>
-              <h7>Desenvolvedor FullStack, apaixonado por tecnologia e negócios inovadores</h7>
+              <h6>Desenvolvedor FullStack, apaixonado por tecnologia e negócios inovadores</h6>
             </div>
             <div className="d-flex gap-3 align-items-start">
-            <a href="link.com" id="button-profile" alt='link'>Vamos conversar <i class="bi bi-whatsapp"></i></a>
-            <a href="link.com" id="button-cv" alt='link'>Download CV <i class="bi bi-download"></i></a>
+            <a href="link.com" id="button-profile" alt='link'>Vamos conversar <i className="bi bi-whatsapp"></i></a>
+            <a href="link.com" id="button-cv" alt='link'>Download CV <i className="bi bi-download"></i></a>
           </div>
           </div>
           
         </div>
 
         <div className="col-md-6 col-xl-4 text-center d-none d-sm-flex flex-wrap align-items-center justify-content-center">
-          <img
-            className="img-fluid col-sm-8"
-            src="https://thumbs2.imgbox.com/e7/99/fZ5Eyrlj_t.jpeg"
-            alt="imagem foto"
-          />
+          <svg className="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0" maskType="alpha">
+              <rect width="100%" height="100%" fill="000000#" />
+              <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" fill="#ffffff"></path>
+            </mask>
+
+            <g mask="url(#mask0)">
+              {/* Ajuste a cor da forma aqui */}
+              <rect width="100%" height="100%" fill="#fd6d58" />
+              {/* Use xlinkHref para referenciar a imagem */}
+              <image className="home__blob-img" x="6" y="35" width="175" height="160" xlinkHref={perfil}></image>
+            </g>
+          </svg>
         </div>
         <div className="col-1" id="divider"></div>
       </div>
-
-      
+      {/* SOBRE */}
+      <div className="container-fluid" style={{ marginBottom: '10rem' }} id="sobre">
+          <div className="container">
+            <h1 className="text-center fw-bolder" style={{ marginBottom: '5rem' }} id="br">Sobre</h1>
+            <div className="p-3 mb-4 rounded-3" style={{backgroundColor: 'var(--orange-light)'}}>
+              <div className="container-fluid py-3">
+                <div className='d-lg-flex'>
+                    <div className=' col col-lg-5 fs-5 d-flex flex-column text-justify justify-content-center gap-3'>
+                        <p className='text-justify'>🔧Desenvolvo soluções, como <strong >landing pages e APIs</strong>, que combinam criatividade e eficiência.</p>
+                        <p className='text-justify'>
+                        📚Atualmente, <strong>Graduando em Engenharia da Computação</strong> e aluno do curso Dev In House do Senai, onde aprofundo meus conhecimentos práticos em desenvolvimento web.
+                        </p> 
+                        <p className='text-justify'>🚀Tive a oportunidade de passar por algumas <strong>startups</strong> e também adquirir experiências em metologias ágeis como <strong>Scrum e Kanban</strong>.</p>
+                    </div>
+                      <div className="d-none d-lg-flex col-lg" ></div>
+                      <div className="col-md-12 col-lg-4 d-flex justify-content-center align-content-center" >
+                        <img className='img-fluid' src={avatar} alt='avatar'></img>
+                        </div>
+                      </div>
+                </div>
+              </div>
+          </div>
+      </div>
       {/*HABILIDADES */}
       <div id="skills">
           <h1 className="fw-bolder text-center" id="br" style={{ marginBottom: '10rem' }}>Habilidades</h1>
@@ -92,101 +149,101 @@ function Content() {
 
       {/* Projetos */}
 
-      <div class="container-fluid" id="projects">
+      <div className="container-fluid" id="projects">
         <div className="container">
           <h1 className="text-center fw-bolder mb-4" id="br"  style={{ marginTop: '10rem' }}>Projetos</h1>
 
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style={{ marginTop: '10rem' }} >
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                      <button type="button" class="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" class="btn btn-lg btn-outline-secondary">
-                      <i class="bi bi-github"></i>
+          <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3" style={{ marginTop: '5rem' }} >
+            <div className="col">
+              <div className="card shadow-sm" style={{ height: '100%' }} >
+                <img className="bd-placeholder-img card-img-top" height="225" src='https://raw.githubusercontent.com/0Duarte/Projeto-DevInHouse-SENAI-FrontEnd/main/Projeto-modulo-1/src/assets/screenshots/login.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
+                <div className="card-body d-flex flex-column justify-content-between">
+                  <p className="card-text" >{userData[10].description}</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                      <button type="button" className="btn btn-lg btn-outline-secondary disabled ">View</button>
+                      <a href={userData[10].html_url} target="_blank" rel="noopener noreferrer" type="button" className="btn btn-lg btn-outline-success">
+                      <i className="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col">
+              <div className="card shadow-sm" style={{ height: '100%' }}>
+              <img className="bd-placeholder-img card-img-top" height="225" src='https://github.com/0Duarte/FunkoLab/raw/exercicio/FunkoLabProject/src/assets/screenshot1.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
+                <div className="card-body d-flex flex-column justify-content-between">
+                  <p className="card-text">{userData[7].description}</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
+                      <a type="button" href={userData[7].html_url} target="_blank" rel="noopener noreferrer" className="btn btn-lg btn-outline-secondary">
+                      <i className="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col">
+              <div className="card shadow-sm">
+                <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <div className="card-body">
+                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
+                      <button type="button" className="btn btn-lg btn-outline-secondary">
+                      <i className="bi bi-github"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                      <button type="button" class="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" class="btn btn-lg btn-outline-secondary">
-                      <i class="bi bi-github"></i>
+            <div className="col">
+              <div className="card shadow-sm">
+                <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <div className="card-body">
+                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
+                      <button type="button" className="btn btn-lg btn-outline-secondary">
+                      <i className="bi bi-github"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                      <button type="button" class="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" class="btn btn-lg btn-outline-secondary">
-                      <i class="bi bi-github"></i>
+            <div className="col">
+              <div className="card shadow-sm">
+                <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <div className="card-body">
+                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                      <button type="button" className="btn btn-lg btn-outline-success ">View</button>
+                      <button type="button" className="btn btn-lg btn-outline-success">
+                      <i className="bi bi-github"></i>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" class="btn btn-lg btn-outline-secondary">
-                      <i class="bi bi-github"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                      <button type="button" class="btn btn-lg btn-outline-success ">View</button>
-                      <button type="button" class="btn btn-lg btn-outline-success">
-                      <i class="bi bi-github"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" class="btn btn-lg btn-outline-secondary">
-                      <i class="bi bi-github"></i>
+            <div className="col">
+              <div className="card shadow-sm">
+                <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <div className="card-body">
+                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
+                      <button type="button" className="btn btn-lg btn-outline-secondary">
+                      <i className="bi bi-github"></i>
                       </button>
                     </div>
                   </div>
@@ -202,42 +259,43 @@ function Content() {
           <div className="container">
             <h1 className="text-center fw-bolder mb-4" id="br"  style={{ marginTop: '5rem' }}>Contato</h1>
 
-            <div class="p-3 mb-4 rounded-3" style={{backgroundColor: 'var(--orange-light)'}}>
-              <div class="container-fluid py-3">
+            <div className="p-3 mb-4 rounded-3" style={{backgroundColor: 'var(--orange-light)'}}>
+              <div className="container-fluid py-3">
                 <div>
 
                     <div>
-                      <h1 class=" fw-bold">Vamos trabalhar juntos!</h1>
+                      <h1 className=" fw-bold">Vamos trabalhar juntos!</h1>
                     </div>
                     <div className="mt-5" >
                       {/* Linkedin */}
                       <div className="d-flex align-items-center gap-3">
-                        <a href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3B85AyVXc%2FT2qdJoTjb2jMYQ%3D%3D" target="_blank" rel="noreferrer">
-                          <i class="bi bi-linkedin fs-2" style={{color: "#fd6d58"}}></i>
+                        <a href="https://www.linkedin.com/in/guilherme-oduarte" target="_blank" rel="noreferrer">
+                          <i className="bi bi-linkedin fs-2" style={{color: "#fd6d58"}}></i>
                         </a>
                         <span>Guilherme Duarte</span>
                       </div>
                       {/* Email */}
                       <div className="d-flex align-items-center gap-3">
                         <a href="mailto:seuemail@email.com" target="_blank" rel="noreferrer">
-                          <i class="bi bi-envelope fs-2" style={{color: "#fd6d58"}}></i>
+                          <i className="bi bi-envelope fs-2" style={{color: "#fd6d58"}}></i>
                         </a>
                         <span>guiduartesbs@hotmail.com</span>
                       </div>
                       {/* Celular */}
                       <div className="d-flex align-items-center gap-3">
-                        <a href="https://wa.me/5547999017407" target="_blank" rel="noreferrer">
-                          <i class="bi bi-whatsapp fs-2" style={{color: "#fd6d58"}}></i>
+                        <a href="https://wa.me/5547933004238" target="_blank" rel="noreferrer">
+                          <i className="bi bi-whatsapp fs-2" style={{color: "#fd6d58"}}></i>
                         </a>
-                        <span>(47) 9 9901-7407</span>
+                        <span>(47) 9 3300-4238</span>
                       </div>
                       {/* Github */}
-                      <div className="d-flex align-items-center gap-3">
+                      <div className="d-flex align-items-center gap-3 text-decoration-none">
                         <a href="https://github.com/0Duarte" target="_blank" rel="noreferrer">
-                          <i class="bi bi-github fs-2" style={{color: "#fd6d58"}}></i>
+                          <i className="bi bi-github fs-2" style={{color: "#fd6d58"}}></i>
                         </a>
                         <span>Github</span>
                       </div>
+                      
                       <img src={contact} alt="" className=' d-none d-lg-flex'/>
                     </div>
                     

@@ -92,3 +92,10 @@ body{
 .hover-effect:hover {
   transform: scale(1.2); /* Ajuste o valor conforme necessário para o aumento desejado */
 }
+
+.hover-effect-projects:hover {
+  transform: scale(1.05); /* Ajuste o valor conforme necessário para o aumento desejado */
+}
+.hover-effect-projects {
+  transition: transform 0.3s; /* Ajuste o valor conforme necessário para o aumento desejado */
+}
