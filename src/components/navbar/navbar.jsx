@@ -5,9 +5,9 @@ import logo from '../../assets/logo4.png'
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-transparent">
+    <nav className="navbar navbar-expand-lg bg-transparent" id='home'>
       <div className="container-fluid">
-          <a href="#home" className='ms-2'>
+          <a href="https://oguilhermeduarte.com.br" className='ms-2'>
             <img src={logo} alt="" width={50} />
             </a>
         <button
