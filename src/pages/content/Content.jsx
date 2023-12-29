@@ -14,14 +14,12 @@ function Content() {
         const response = await axios.get('https://api.github.com/users/0Duarte/repos')
         setUserData(response.data);
       }catch(error){
-        console.log(error)
       }
     }
     fetchUserData();
   },[])
   
   useEffect(() => {
-    console.log(userData);
   }, [userData]);
 
   if (!userData) {
@@ -52,7 +50,7 @@ function Content() {
         </div>
 
         <div className="col-md-6 col-xl-4 text-center d-none d-sm-flex flex-wrap align-items-center justify-content-center">
-          <svg className="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
+          <svg className="home__blob hover-effect-img" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0" maskType="alpha">
               <rect width="100%" height="100%" fill="000000#" />
               <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" fill="#ffffff"></path>
@@ -158,14 +156,29 @@ function Content() {
               <div className="card shadow-sm" style={{ height: '100%' }} >
                 <img className="bd-placeholder-img card-img-top" height="225" src='https://raw.githubusercontent.com/0Duarte/Projeto-DevInHouse-SENAI-FrontEnd/main/Projeto-modulo-1/src/assets/screenshots/login.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
                 <div className="card-body d-flex flex-column justify-content-between">
-                  <p className="card-text" >{userData[10].description}</p>
-                  <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                      <button type="button" className="btn btn-lg btn-outline-secondary disabled ">View</button>
-                      <a href={userData[10].html_url} target="_blank" rel="noopener noreferrer" type="button" className="btn btn-lg btn-outline-success">
-                      <i className="bi bi-github"></i>
-                      </a>
+                  <p className="card-text" >GymPro: Gerenciamento de alunos e treinos para academias, com login cadastros...</p>
+                  
+                  <div className="d-flex justify-content-evenly  align-items-center">
+                    <div className="btn-group">
+                        <button type="button" className="btn btn-lg btn-outline-secondary disabled ">View</button>
+                        <a href={userData[10].html_url} target="_blank" rel="noopener noreferrer" type="button" className="btn btn-lg btn-outline-success">
+                        <i className="bi bi-github"></i>
+                        </a>
                     </div>
+                    <div className='d-flex gap-1'>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Vue.js</span>
+                        <span class="badge bg-success">Javasript</span>
+                      </div>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Routes</span>
+                        <span class="badge bg-success">Axios</span>
+                      </div>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Rest</span>
+                        <span class="badge bg-success">Yup</span>
+                      </div>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -174,30 +187,55 @@ function Content() {
               <div className="card shadow-sm" style={{ height: '100%' }}>
               <img className="bd-placeholder-img card-img-top" height="225" src='https://github.com/0Duarte/FunkoLab/raw/exercicio/FunkoLabProject/src/assets/screenshot1.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
                 <div className="card-body d-flex flex-column justify-content-between">
-                  <p className="card-text">{userData[7].description}</p>
+                  <p className="card-text">Biblioteca de Funkos. Nele o usuário pode adiciona-los ao carrinho e verificar os preços dos bonecos.</p>
                   <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
-                      <a type="button" href={userData[7].html_url} target="_blank" rel="noopener noreferrer" className="btn btn-lg btn-outline-secondary">
-                      <i className="bi bi-github"></i>
-                      </a>
+                    <div className="btn-group">
+                        <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
+                        <a type="button" href={userData[7].html_url} target="_blank" rel="noopener noreferrer" className="btn btn-lg btn-outline-secondary">
+                        <i className="bi bi-github"></i>
+                        </a>
                     </div>
+                    <div className='d-flex gap-1'>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">VueX</span>
+                        <span class="badge bg-success">Vue Router</span>
+                      </div>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Routes</span>
+                        <span class="badge bg-success">JsonServer</span>
+                      </div>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Rest</span>
+                        <span class="badge bg-success">Vuetify</span>
+                      </div>
+                  </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col">
-              <div className="card shadow-sm">
+              <div className="card shadow-sm"style={{ height: '100%' }}>
                 <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div className="card-body">
-                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div className="card-body d-flex flex-column justify-content-between">
+                  <p className="card-text">Site portfolio criado com react e bootstrap, deploy no Vercel com domínio próprio</p>
                   <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" className="btn btn-lg btn-outline-secondary">
-                      <i className="bi bi-github"></i>
-                      </button>
+                    <div className="btn-group">
+                        <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
+                        <button type="button" className="btn btn-lg btn-outline-secondary">
+                        <i className="bi bi-github"></i>
+                        </button>
                     </div>
+                    <div className='d-flex gap-1'>
+                      <div className='d-flex flex-column align-content-center gap-1'>
+                        <span class="badge bg-success">React</span>
+                      </div>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Bootstrap</span>
+                      </div>
+                      <div className='d-flex flex-column gap-1'>
+                        <span class="badge bg-success">Vercel</span>
+                      </div>
+                  </div>
                   </div>
                 </div>
               </div>
