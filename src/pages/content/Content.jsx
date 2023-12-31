@@ -129,16 +129,18 @@ function Content() {
       <div className="container-fluid" id="projects">
         <div className="container">
           <h1 className="text-center fw-bolder mb-4" id="br"  style={{ marginTop: '10rem' }}>Projetos</h1>
-
+          
           <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3" style={{ marginTop: '5rem' }} >
             <div className="col">
               <div className="card shadow-sm" style={{ height: '100%' }} >
+              <a href='https://github.com/0Duarte/Projeto-DevInHouse-SENAI-FrontEnd' target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
                 <img className="bd-placeholder-img card-img-top" height="225" title='Deploy em breve ;)' src='https://raw.githubusercontent.com/0Duarte/Projeto-DevInHouse-SENAI-FrontEnd/main/Projeto-modulo-1/src/assets/screenshots/login.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
+                </a>
                 <div className="card-body d-flex flex-column justify-content-between">
                   <p className="card-text" >GymPro: Gerenciamento de alunos e treinos para academias, com login cadastros...</p>
                   
                   <div className="d-flex justify-content-between align-items-center">
-                    <a type="button" class="btn btn-outline-success" href='https://github.com/0Duarte/FunkoLab' target="_blank" rel="noopener noreferrer">
+                    <a type="button" class="btn btn-outline-success" href='https://github.com/0Duarte/Projeto-DevInHouse-SENAI-FrontEnd' target="_blank" rel="noopener noreferrer">
                         <i className="bi bi-github"></i>
                     </a>
                     <div className='d-flex gap-1'>
@@ -246,7 +248,9 @@ function Content() {
             </div>
             <div className="col">
               <div className="card shadow-sm" style={{ height: '100%' }}>
+              <a href='https://github.com/0Duarte/api_clientes' target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
               <img className="bd-placeholder-img card-img-top" height="225" src='https://jonathasguerra.com.br/blog/wp-content/uploads/2017/01/laravel-covercover-1140x640.jpg' style={{ objectPosition: "50%" }} alt='logo-laravel' focusable="false"></img>
+              </a>
                 <div className="card-body d-flex flex-column justify-content-between">
                   <p className="card-text">Api Sorteio para clientes: Realiza crud e verifica a existência de sorteios, envia um email com as informações para o cliente vencedor aleatório</p>
                   <div className="d-flex justify-content-between align-items-center">
@@ -274,22 +278,7 @@ function Content() {
                 </div>
               </div>
             </div>
-            {/* <div className="col">
-              <div className="card shadow-sm">
-                <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div className="card-body">
-                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="btn-group">
-                      <button type="button" className="btn btn-lg btn-outline-secondary ">View</button>
-                      <button type="button" className="btn btn-lg btn-outline-secondary">
-                      <i className="bi bi-github"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
+            
           </div>
         </div>
       </div>
