@@ -222,7 +222,7 @@ function Content() {
             
             <div className="col">
               <div className="card shadow-sm" style={{ height: '100%' }}>
-              <a href='https://ladingpagefigma.oguilhermeduarte.com.br' target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
+              <a href='https://landing-page-com-figma.vercel.app/' target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
               <img className="bd-placeholder-img card-img-top" height="225" src='https://i.ibb.co/fYqG78t/screenshot-landingpage.png' style={{ objectPosition: "50%" }} aria-label="Placeholder: Thumbnail" focusable="false"></img>
               </a>
                 <div className="card-body d-flex flex-column justify-content-between">
