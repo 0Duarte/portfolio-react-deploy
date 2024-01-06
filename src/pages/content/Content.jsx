@@ -10,7 +10,7 @@ function Content() {
     <div className="container-fluid">
       {/*APRESENTAÇÃO */}
       <div className="row" id="section-profile" style={{minHeight: "90vh"}}>
-        <div className="col-md-6 col-xl d-flex flex-column flex-wrap align-items-center justify-content-center">
+        <div className="col-lg-6 col-xl d-flex flex-column flex-wrap align-items-center justify-content-center">
           <div className="d-flex flex-column align-items-start gap-3">
             <div>
               <div id="br2" className="mb-5"></div>
@@ -27,8 +27,7 @@ function Content() {
           </div>
           
         </div>
-
-        <div className="col-md-6 col-xl-4 text-center d-none d-sm-flex flex-wrap align-items-center justify-content-center">
+        <div className="col-lg-6 col-xl-4 text-center d-none d-lg-flex flex-wrap align-items-center justify-content-center">
           <svg className="home__blob hover-effect-img" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0" maskType="alpha">
               <rect width="100%" height="100%" fill="000000#" />
@@ -175,16 +174,13 @@ function Content() {
                     <div className='d-flex gap-1'>
                       <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">VueX</span>
-                        <span class="badge bg-success">Vue Router</span>
+                        <span class="badge bg-success">Vuetify</span>
                       </div>
                       <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">Routes</span>
                         <span class="badge bg-success">JsonServer</span>
                       </div>
-                      <div className='d-flex flex-column gap-1'>
-                        <span class="badge bg-success"></span>
-                        <span class="badge bg-success">Vuetify</span>
-                      </div>
+                      
                   </div>
                   </div>
                 </div>
@@ -204,15 +200,16 @@ function Content() {
                     <div className='d-flex gap-1'>
                       <div className='d-flex flex-column align-content-center gap-1'>
                         <span class="badge bg-success">React</span>
-                      </div>
-                      <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">Bootstrap</span>
+
                       </div>
+                
                       <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">Vercel</span>
+                        <span class="badge bg-success">Responsividade</span>
+
                       </div>
                       <div className='d-flex flex-column gap-1'>
-                        <span class="badge bg-success">Responsivo</span>
                       </div>
                   </div>
                   </div>
@@ -260,16 +257,14 @@ function Content() {
                     <div className='d-flex gap-1'>
                       <div className='d-flex flex-column align-content-center gap-1'>
                         <span class="badge bg-success">PostgreSQL</span>
-                      </div>
-                      <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">Laravel</span>
                       </div>
                       <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">PHP</span>
-                      </div>
-                      <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">Docker</span>
+
                       </div>
+                     
                       <div className='d-flex flex-column gap-1'>
                         <span class="badge bg-success">CRUD</span>
                       </div>
