@@ -35,9 +35,7 @@ function Content() {
             </mask>
 
             <g mask="url(#mask0)">
-              {/* Ajuste a cor da forma aqui */}
               <rect width="100%" height="100%" fill="#fd6d58" />
-              {/* Use xlinkHref para referenciar a imagem */}
               <image className="home__blob-img" x="6" y="35" width="175" height="160" xlinkHref={perfil}></image>
             </g>
           </svg>
@@ -102,11 +100,11 @@ function Content() {
               <h6 className="mt-1">PHP</h6>
             </div>
             <div className="col ms-4 hover-effect">
-              <img width="100" height="100" alt="laravel" className="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg"/>
+              <img width="100" height="100" alt="laravel" className="p-2" src="https://cdn.iconscout.com/icon/free/png-512/free-laravel-226015.png?f=webp&w=256"/>
               <h6 className="mt-1">Laravel</h6>
             </div>
             <div className="col ms-4 hover-effect">
-              <img  width="100" height="100" alt="postgre" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+              <img width="100" height="100" alt="postgre" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
               <h6 className="mt-1">PostgreSql</h6>
             </div>
             <div className="col ms-4 hover-effect">
@@ -189,7 +187,7 @@ function Content() {
             <div className="col">
               <div className="card shadow-sm" style={{ height: '100%' }}>
               <a href='#home' target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
-              <img className="bd-placeholder-img card-img-top" height="225" src='https://i.ibb.co/j4Dy0b7/screenshot.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
+              <img className="bd-placeholder-img card-img-top img-fluid" height="225" src='https://i.ibb.co/j4Dy0b7/screenshot.png' aria-label="Placeholder: Thumbnail" focusable="false"></img>
               </a>
                 <div className="card-body d-flex flex-column justify-content-between">
                   <p className="card-text">Site portfolio criado com react e bootstrap, deploy no Vercel com domínio próprio</p>
